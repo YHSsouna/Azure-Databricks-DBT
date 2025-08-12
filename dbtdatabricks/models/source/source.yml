@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: dbo
+    schema: dbo
+    description: This is your parquet data stored source
+    tables:
+      - name: auchan
+      - name: auchan_cat
+      - name: auchan_norm
+      - name: auchan_section
+      - name: biocoop
+      - name: biocoop_cat
+      - name: biocoop_section
+      - name: carrefour
+      - name: carrefour_cat
+      - name: carrefour_section
+      - name: labellevie_cat
+      - name: labellevie
+      - name: labellevie_norm
+      - name: labellevie_section
+      - name: store_img

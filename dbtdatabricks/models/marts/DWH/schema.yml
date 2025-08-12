@@ -1,0 +1,114 @@
+models:
+  - name: dim_picture
+    description: "Dimension table containing picture metadata"
+    columns:
+      - name: id_picture
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_product
+    description: "Dimension table containing product metadata"
+    columns:
+      - name: product_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+      - name: id_picture
+        description: "FK to dim_picture"
+        tests:
+          - relationships:
+              to: ref('dim_picture')
+              field: id_picture
+
+      - name: id_store
+        description: "FK to dim_store"
+        tests:
+          - relationships:
+              to: ref('dim_store')
+              field: id_store
+
+      - name: id_category
+        description: "FK to dim_category"
+        tests:
+          - relationships:
+              to: ref('dim_category')
+              field: id_category
+
+
+  - name: dim_category
+    description: "Dimension table containing category metadata"
+    columns:
+      - name: id_category
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_store
+    description: "Dimension table containing store metadata"
+    columns:
+      - name: id_store
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_date
+    description: "Dimension table containing date metadata"
+    columns:
+      - name: date_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_sales
+    description: "Fact table containing sales data"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+      - name: product_id
+        description: "Foreign key referencing the product of the sale"
+        tests:
+          - relationships:
+              to: ref('dim_product')
+              field: product_id
+
+      - name: date_id
+        description: "Foreign key referencing the date of the sale"
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date_id
+
+#  - name: dim_predictions
+#    description: "Dimension table containing one month predictions"
+#    columns:
+#      - name: id_prediction
+#        description: "Primary key"
+#        tests:
+#          - unique
+#          - not_null
+#      - name: product_id
+#        description: "Foreign key referencing the product_id in dim_product table"
+#        tests:
+#          - relationships:
+#              to: ref('dim_product')
+#              field: product_id
+#      - name: sales
+#        description: "Estimated sales without restocks"
+#        tests:
+#          - not_null
+#          - dbt_expectations.expect_column_values_to_be_between:
+#              min_value: 0
