@@ -6,7 +6,7 @@ This project demonstrates an **end-to-end data pipeline** using **Azure Databric
 ---
 
 ## System Architecture
-![System Architecture](System Architecture.jpeg)
+![Architecture Diagram](https://raw.githubusercontent.com/YHSsouna/Azure-Databricks-DBT/master/System%20Architecture.jpeg)
 
 ---
 
