@@ -10,6 +10,15 @@ This project demonstrates an **end-to-end data pipeline** using **Azure Databric
 
 ---
 
+## Databricks Tables
+![Databricks Tables](https://github.com/YHSsouna/Azure-Databricks-DBT/blob/master/Screenshot%202025-08-14%20153220.png)
+
+---
+
+## Azure Data Factory Pipeline
+![Azure Data Factory Pipeline](https://github.com/YHSsouna/Azure-Databricks-DBT/blob/master/adf_pipeline.png)
+
+---
 ### Try running the following commands
 - `dbt run` — run all models  
 - `dbt test` — run tests on models  
